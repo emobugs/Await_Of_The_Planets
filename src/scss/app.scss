@@ -20,10 +20,13 @@ html {
 }
 
 .main {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
-  font-size: 10rem;
-  flex-flow: column;
+  .box,
+  .progress {
+    width: 500px;
+  }
 }
