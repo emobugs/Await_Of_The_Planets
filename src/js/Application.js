@@ -12,6 +12,7 @@ export default class Application extends EventEmitter {
     super();
 
     this._loading = document.querySelector('.progress');
+    console.log(this._loading);
 
     this._load();
 
@@ -30,8 +31,12 @@ export default class Application extends EventEmitter {
       const fetchPlanets = await fetch(`https://swapi.boom.dev/api/planets?page=${counter}`)
       const data = await fetchPlanets.json();
       const planets = data.results;
-
+      
       next = data.next;
+      console.log(next);
+      if(next === null){
+         this._stopLoading();
+      }
 
       planets.forEach(planet => {
         const box = document.createElement("div");
@@ -46,7 +51,6 @@ export default class Application extends EventEmitter {
 
 
     }
-    this._stopLoading();
 
   }
   _render(){};
@@ -76,7 +80,7 @@ export default class Application extends EventEmitter {
     this._loading.style.display = "block";
   };
   
-  _stopLoading(){
+   _stopLoading(){
     this._loading.style.display = "none";
   };
 
