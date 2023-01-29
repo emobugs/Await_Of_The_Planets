@@ -15,6 +15,8 @@ export default class Application extends EventEmitter {
 
     this._load();
 
+
+
     this.emit(Application.events.READY);
   }
 
@@ -47,6 +49,7 @@ export default class Application extends EventEmitter {
     this._stopLoading();
 
   }
+  _render(){};
 
   _create({name, terrain, population}){
     return `
