@@ -15,17 +15,6 @@ export default class Application extends EventEmitter {
 
     this._load();
 
-    
-    const box = document.createElement("div");
-    box.classList.add("box");
-    box.innerHTML = this._render({
-      name: "Placeholder",
-      terrain: "placeholder",
-      population: 0,
-    });
-
-    document.body.querySelector(".main").appendChild(box);
-
     this.emit(Application.events.READY);
   }
 
